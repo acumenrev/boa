@@ -36,7 +36,7 @@ class <%= @prefixed_module %>Wireframe: NSObject {
     func presentSelfFromViewController(viewController: UIViewController, identifier : String)
     {
         // init view controller 
-        self.viewController = initViewController(withIdentifier : identifier)
+        self.initViewController()
 
         // present controller
         // *** present self with RootViewController
@@ -47,7 +47,7 @@ class <%= @prefixed_module %>Wireframe: NSObject {
 
     func pushSelfFromViewController(viewController : UIViewController, identifier : String) {
         // init view controller 
-        self.viewController = initViewController(withIdentifier : identifier)
+        self.initViewController()
 
         // push view controller
         viewController.navigationController?.pushViewController(self.viewController!, animated: true)
@@ -56,21 +56,15 @@ class <%= @prefixed_module %>Wireframe: NSObject {
 
 extension <%= @prefixed_module %>Wireframe : <%= @prefixed_module %>ModuleDelegate {
 
-    /// Init view controller with an identifier
+    /// Init view controller
     ///
-    /// - parameter identifier: Identifier
     ///
-    /// - returns: ViewController instance
-    fileprivate func initViewController(withIdentifier identifier : String) -> UIViewController {
+    fileprivate func initViewController()  {
         // save reference
-        let vc = <%= @prefixed_module %>ViewController(nibName: "<%= @prefixed_module %>ViewController", bundle: nil)
-        vc.delegate = self
-        vc.identifier = identifier
-
+        self.viewController = <%= @prefixed_module %>ViewController(nibName: "<%= @prefixed_module %>ViewController", bundle: nil)
+        self.viewController?.delegate = self
         // view <-> presenter
-        vc.presenter?.userInterface = self.viewController
-        vc.viewController?.eventHandler = self.presenter
-
-        return vc
+        self.presenter?.userInterface = self.viewController
+        self.viewController?.eventHandler = self.presenter
     }
 }

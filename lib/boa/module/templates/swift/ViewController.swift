@@ -22,12 +22,12 @@ class <%= @prefixed_module %>ViewController: UIViewController, <%= @prefixed_mod
         self.setupUI()
     }
 
-    override func viewWillAppear(animated: Bool)
+    override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(animated)
     }
 
-    override func viewDidAppear(animated: Bool)
+    override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
     }
@@ -66,7 +66,7 @@ extension <%= @prefixed_module %>ViewController {
     /**
         Deregister observers 
      */
-    private func deregisterObservers() {
+    fileprivate func deregisterObservers() {
 
     }
 }
