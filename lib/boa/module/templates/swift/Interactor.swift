@@ -8,8 +8,7 @@
 
 import Foundation
 
-class <%= @prefixed_module %>Interactor: NSObject
-{
+class <%= @prefixed_module %>Interactor: NSObject {
     weak var presenter: <%= @prefixed_module %>Presenter?
     var dataManager: <%= @prefixed_module %>DataManager?
 }

@@ -8,15 +8,18 @@
 
 import UIKit
 
-class <%= @prefixed_module %>ViewController: UIViewController, <%= @prefixed_module %>ViewInterface
-{
+class <%= @prefixed_module %>ViewController: UIViewController, <%= @prefixed_module %>ViewInterface {
     var eventHandler: <%= @prefixed_module %>ModuleInterface?
+    var delegate: <%= @prefixed_module %>ModuleDelegate?
+    var identifier: String = ""
 
     // MARK: - View lifecycle
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
+
+        self.setupUI()
     }
 
     override func viewWillAppear(animated: Bool)
@@ -29,12 +32,47 @@ class <%= @prefixed_module %>ViewController: UIViewController, <%= @prefixed_mod
         super.viewDidAppear(animated)
     }
 
-    // MARK: - <%= @prefixed_module %>ViewInterface methods
+    deinit {
+        self.deregisterObservers()
+    }
+}
 
-    // *** implement view_interface methods here
+// MARK: - <%= @prefixed_module %>ViewInterface methods
+// *** implement view_interface methods here
+extension <%= @prefixed_module %>ViewController {
 
-    // MARK: - Button event handlers
+    /** 
+       Setup UI for view 
+     */
+    fileprivate func setupUI() {
+        registerNibs()
+        registerObservers()
+    }
 
-    // ** handle UI events here
+    /**
+        Register nibs 
+     */
+    private func registerNibs() {
+
+    }
+
+    /**
+        Register observers 
+     */
+    private func registerObservers() {
+
+    }
+
+    /**
+        Deregister observers 
+     */
+    private func deregisterObservers() {
+
+    }
+}
+
+// MARK: - Button event handlers
+// ** handle UI events here
+extension <%= @prefixed_module %>ViewController {
 
 }

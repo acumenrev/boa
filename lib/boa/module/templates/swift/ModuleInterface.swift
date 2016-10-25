@@ -8,12 +8,10 @@
 
 import Foundation
 
-protocol <%= @prefixed_module %>ModuleInterface
-{
+protocol <%= @prefixed_module %>ModuleInterface {
 
 }
 
-protocol <%= @prefixed_module %>ModuleDelegate
-{
+protocol <%= @prefixed_module %>ModuleDelegate {
 
 }

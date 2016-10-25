@@ -8,7 +8,6 @@
 
 import Foundation
 
-class <%= @prefixed_module %>DataManager: NSObject
-{
+class <%= @prefixed_module %>DataManager: NSObject {
 
 }
